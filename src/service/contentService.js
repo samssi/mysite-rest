@@ -5,8 +5,9 @@ const readFileFromRelativePath = require('../util/relativeFs');
 const personalInfoJson = readFileFromRelativePath('./json/personal-information.json');
 
 function getPersonalInformation() {
-    console.log("info: " + personalInfoJson);
-    return personalInfoJson;
+    const json = JSON.parse(personalInfoJson);
+    console.log(json);
+    return json;
 }
 
 module.exports = getPersonalInformation;
