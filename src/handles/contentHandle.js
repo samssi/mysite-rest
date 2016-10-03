@@ -1,9 +1,13 @@
 'use strict';
 
-const getPersonalInformation = require('../service/contentService');
+const content = require('../service/contentService');
 
-function personalInfoHandle(req, res) {
-    getPersonalInformation(res);
+function personalInfosHandle(req, res) {
+    content.getFirst("personalInfo", res);
 }
 
-module.exports = { personalInfoHandle };
+function experiencesHandle(req, res) {
+    content.getAll("experience", res);
+}
+
+module.exports = { personalInfosHandle, experiencesHandle };
