@@ -2,8 +2,8 @@
 
 const getPersonalInformation = require('../service/contentService');
 
-function contentHandle(req, res) {
-    res.status(200).send(getPersonalInformation());
+function personalInfoHandle(req, res) {
+    getPersonalInformation(res);
 }
 
-module.exports = contentHandle;
+module.exports = { personalInfoHandle };
