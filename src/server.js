@@ -9,6 +9,7 @@ const Promise = require('bluebird');
 const rootHandler = require('./handlers/rootHandler');
 const errorHandler = require('./handlers/errorHandler')
 const MongoClient = require('mongodb').MongoClient;
+const config = require('config');
 
 app.use(helmet());
 app.use(cors());
@@ -17,7 +18,7 @@ app.use(bodyParser.json());
 app.use('/', rootHandler);
 app.use(errorHandler);
 
-MongoClient.connect("mongodb://:@ds049476.mlab.com:49476/mysite",{ promiseLibrary: Promise })
+MongoClient.connect(config.get("mongoDb.connectionUrl"), { promiseLibrary: Promise })
     .catch(err => console.log(err.stack))
     .then(db => {
         app.locals.db = db;
