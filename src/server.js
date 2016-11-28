@@ -14,6 +14,7 @@ const config = require('config');
 app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/images', express.static('images'));
 
 app.use('/', rootHandler);
 app.use(errorHandler);
@@ -23,7 +24,7 @@ MongoClient.connect(config.get("mongoDb.connectionUrl"), { promiseLibrary: Promi
     .then(db => {
         app.locals.db = db;
         app.listen(8090, () => console.log('Server started at port 8090'));
-        });
+    });
 
 
 module.exports = app;
