@@ -7,7 +7,7 @@ const app = express();
 const cors = require('cors');
 const Promise = require('bluebird');
 const rootHandler = require('./handlers/rootHandler');
-const errorHandler = require('./handlers/errorHandler')
+const errorHandler = require('./handlers/errorHandler');
 const MongoClient = require('mongodb').MongoClient;
 const config = require('config');
 
