@@ -14,16 +14,20 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 const secret = 'very secret';
 
+// Setup middleware
 app.use(cors());
 app.use(router);
-
 app.use(helmet());
 app.use(bodyParser.json());
-app.use('/images', express.static('images'));
 
+// Setup routes
 app.use('/', rootHandler);
 app.use(errorHandler);
 
+// Static material served by express
+app.use('/public/static/images', express.static('public/images'));
+
+// Server startup
 MongoClient.connect(config.get("mongoDb.connectionUrl"), { promiseLibrary: Promise })
     .catch(err => console.log(err.stack))
     .then(db => {
