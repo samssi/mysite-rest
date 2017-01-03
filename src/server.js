@@ -15,7 +15,6 @@ const router = express.Router();
 const secret = 'very secret';
 
 app.use(cors());
-
 app.use(router);
 
 app.use(helmet());
