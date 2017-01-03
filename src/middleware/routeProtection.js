@@ -1,30 +1,30 @@
 'use strict';
 
 const express = require('express');
-const router = express.Router();
 const jwt = require('jsonwebtoken');
 const secret = 'very secret';
 
-function requireToken(req, res, next) {
-    console.log('route protection!');
+const requireToken = function (req, res, next) {
+    console.log('foo');
     const token = req.get('Authorization');
-    console.log('Request headers: ' + token);
 
     if (token) {
-        console.log('token found: ' + token);
+        console.log('Verifying token: ' + token);
         returnTokenOrFail(token, next, req, res);
     }
     else {
+        console.log('No token was provided!');
         return res.status(403).send({
             success: false,
             message: 'No token provided.'
         });
     }
-}
+};
 
 function returnTokenOrFail(token, next, req, res) {
     jwt.verify(token, secret, function(err, decodedToken) {
         if(!err) {
+            console.log('Request made by: ' + decodedToken.sub);
             req.decodedToken = decodedToken;
             next();
         }
