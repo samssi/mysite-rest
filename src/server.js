@@ -10,9 +10,48 @@ const rootHandler = require('./handlers/rootHandler');
 const errorHandler = require('./handlers/errorHandler');
 const MongoClient = require('mongodb').MongoClient;
 const config = require('config');
+const jwt = require('jsonwebtoken');
+const router = express.Router();
+const secret = 'very secret';
+
+app.use(cors());
+
+function requireToken(req, res, next) {
+    console.log('route protection!');
+    const token = req.get('Authorization');
+    console.log('Request headers: ' + token);
+
+    if (token) {
+        console.log('token found: ' + token);
+        returnTokenOrFail(token, next, req, res);
+    }
+    else {
+        return res.status(403).send({
+            success: false,
+            message: 'No token provided.'
+        });
+    }
+}
+
+function returnTokenOrFail(token, next, req, res) {
+    jwt.verify(token, secret, function(err, decodedToken) {
+        if(!err) {
+            req.decodedToken = decodedToken;
+            next();
+        }
+        else {
+            return res.json({ success: false, message: 'Failed to authenticate token.' });
+        }
+    });
+}
+
+app.all("/contents/*", requireToken, function(req, res, next) {
+    next();
+});
+
+app.use(router);
 
 app.use(helmet());
-app.use(cors());
 app.use(bodyParser.json());
 app.use('/images', express.static('images'));
 
