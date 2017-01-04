@@ -1,7 +1,7 @@
 'use strict';
 
 const bunyan = require('bunyan');
-const logger = bunyan.createLogger({name: 'mysite-errorHandler'});
+const logger = bunyan.createLogger({name: 'mysite-rest-errorHandler'});
 
 
 function errorHandler(err, req, res, next) {

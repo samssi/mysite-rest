@@ -1,7 +1,7 @@
 'use strict';
 
 const bunyan = require('bunyan');
-const logger = bunyan.createLogger({name: 'mysite-server'});
+const logger = bunyan.createLogger({name: 'mysite-rest-server'});
 
 const express = require('express');
 const bodyParser = require('body-parser');

@@ -1,7 +1,7 @@
 'use strict';
 
 const bunyan = require('bunyan');
-const logger = bunyan.createLogger({name: 'mysite-contentService'});
+const logger = bunyan.createLogger({name: 'mysite-rest-contentService'});
 
 function getFirst(db, collection, res) {
     db.collection(collection).findOne(function(err, results) {

@@ -1,7 +1,7 @@
 'use strict';
 
 const bunyan = require('bunyan');
-const logger = bunyan.createLogger({name: 'mysite-contentHandle'});
+const logger = bunyan.createLogger({name: 'mysite-rest-contentHandle'});
 
 const content = require('../service/contentService');
 
