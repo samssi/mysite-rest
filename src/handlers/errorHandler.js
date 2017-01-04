@@ -1,7 +1,11 @@
 'use strict';
 
+const bunyan = require('bunyan');
+const logger = bunyan.createLogger({name: 'mysite-errorHandler'});
+
+
 function errorHandler(err, req, res, next) {
-    console.log(err);
+    logger.error(err, 'Internal server error');
     res.status(500).send('Internal server error');
 }
 
