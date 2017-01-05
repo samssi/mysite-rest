@@ -18,4 +18,10 @@ function experiencesHandle(req, res) {
     content.getAll(db, "experience", res);
 }
 
-module.exports = { personalInfosHandle, experiencesHandle };
+function applicationHandle(req, res) {
+    logger.info("User '%s' requested for application", req.app.locals.decodedToken.sub);
+    const db = req.app.locals.db;
+    content.getFirst(db, "application", res);
+}
+
+module.exports = { personalInfosHandle, experiencesHandle, applicationHandle };
