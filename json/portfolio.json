@@ -1,0 +1,18 @@
+{
+  "order": 1,
+  "company": "xxx",
+  "assignments": [
+    {
+      "year": "2016",
+      "paragraphs": [
+        {
+          "paragraph": "xxx"
+        },
+        {
+          "paragraph": "xxx"
+        }
+      ],
+      "technologies": ["java", "scala"]
+    }
+  ]
+}
