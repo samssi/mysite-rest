@@ -9,7 +9,7 @@ const helmet = require('helmet');
 const app = express();
 const cors = require('cors');
 const Promise = require('bluebird');
-const rootHandler = require('./handlers/rootHandler');
+const privateHandler = require('./handlers/privateHandler');
 const errorHandler = require('./handlers/errorHandler');
 const MongoClient = require('mongodb').MongoClient;
 const config = require('config');
@@ -25,7 +25,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 
 // Setup routes
-app.use('/', rootHandler);
+app.use('/private', privateHandler);
 app.use(errorHandler);
 
 // Static material served by express
