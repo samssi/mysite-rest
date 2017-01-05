@@ -1,7 +1,7 @@
 'use strict';
 
 const bunyan = require('bunyan');
-const logger = bunyan.createLogger({name: 'mysite-rest-contentService'});
+const logger = bunyan.createLogger({name: 'mysite-rest-mongoDbService'});
 
 function getFirst(db, collection, res) {
     db.collection(collection).findOne(function(err, results) {
@@ -22,4 +22,10 @@ function getAll(db, collection, res) {
     });
 }
 
-module.exports = {getAll, getFirst };
+function executeDbRequest(req, res, document, func) {
+    logger.info("User '%s' requested for %s", req.app.locals.decodedToken.sub, document);
+    const db = req.app.locals.db;
+    func(db, document, res);
+}
+
+module.exports = {getAll, getFirst, executeDbRequest };
