@@ -3,34 +3,22 @@
 const bunyan = require('bunyan');
 const logger = bunyan.createLogger({name: 'mysite-rest-contentHandle'});
 
-const content = require('../service/contentService');
+const mongoDbService = require('../service/mongoDbService');
 
-function personalInfosHandle(req, res) {
-    logger.info("User '%s' requested for personalInformation", req.app.locals.decodedToken.sub);
+function singleDocumentHandle(req, res, document) {
+    logRequest(req, document);
     const db = req.app.locals.db;
-    content.getFirst(db, "personalInfo", res);
+    mongoDbService.getFirst(db, document, res);
 }
 
-function experiencesHandle(req, res) {
-    logger.info("User '%s' requested for experienceInformation", req.app.locals.decodedToken.sub);
+function multiDocumentHandle(req, res, document) {
+    logRequest(req, document);
     const db = req.app.locals.db;
-    content.getAll(db, "experience", res);
+    mongoDbService.getAll(db, document, res);
 }
 
-function applicationHandle(req, res) {
-    logRequest(req, "application");
-    const db = req.app.locals.db;
-    content.getFirst(db, "application", res);
+function logRequest(req, document) {
+    logger.info("User '%s' requested for %s", req.app.locals.decodedToken.sub, document);
 }
 
-function portfoliosHandle(req, res) {
-    logRequest(req, "portfolio");
-    const db = req.app.locals.db;
-    content.getAll(db, "portfolio", res);
-}
-
-function logRequest(req, handleDescription) {
-    logger.info("User '%s' requested for %s", req.app.locals.decodedToken.sub, handleDescription);
-}
-
-module.exports = { personalInfosHandle, experiencesHandle, applicationHandle, portfoliosHandle };
+module.exports = { singleDocumentHandle, multiDocumentHandle };
