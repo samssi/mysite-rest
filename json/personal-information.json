@@ -1,10 +1,11 @@
 {
+  "title": "CURRICULUM VITAE",
   "name": "Pekka Peloton",
   "address": {
     "street": "Mallikatu 1",
-    "zipcode": "33200",
-    "city": "Tampere"
+    "zipcode": "33300",
+    "city": "Mallila"
   },
-  "phoneNumber": "+358 12 345 6789",
-  "dateOfBirth": "12. elokuuta 1982"
+  "phoneNumber": "+358 50 xxx xxxx",
+  "applicationDate": "xxx"
 }

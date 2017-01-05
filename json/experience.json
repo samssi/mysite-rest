@@ -1,0 +1,25 @@
+[
+  {
+    "order": 1,
+    "header": "Henkilotiedot",
+    "blocks": [
+      {
+        "title": "Nimi",
+        "content": "Foo Bar"
+      },
+      {
+        "title": "Syntymaaika",
+        "content": "xxx"
+      }
+    ]
+  },
+  {
+    "order": 2,
+    "header": "Koulutus",
+    "blocks": [
+      {
+        "title": "xxx",
+        "content": "xxx"
+      }
+    ]
+  }]
