@@ -1,0 +1,23 @@
+{
+  "header": "MySite application",
+  "description": "MySite application is a web application which fulfils specific recruitment demo purpose. Site uses JSON-templates that are rendered to the screen based on react.js implementation.",
+  "technologies": ["react.js", "node.js", "docker"],
+  "services":
+  [
+    {
+      "title": "MySite UI",
+      "description": "React.js front which uses a mix of inline styles and global styles to test them both.",
+      "github": "https://github.com/samssi/mysite-ui"
+    },
+    {
+      "title": "MySite REST",
+      "description": "node.js build REST API which act as the content service.",
+      "github": "https://github.com/samssi/mysite-rest"
+    },
+    {
+      "title": "MySite Auth",
+      "description": "Authentication service which provides JWT tokens to authorize usage of the content service",
+      "github": "https://github.com/samssi/mysite-auth"
+    }
+  ]
+}

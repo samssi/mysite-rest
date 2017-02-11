@@ -12,5 +12,6 @@ router.get('/contents/applications', function(req,res) {mongoDbService.executeDb
 router.get('/contents/personals', function(req,res) {mongoDbService.executeDbRequest(req, res, "personalInfo", mongoDbService.getFirst)});
 router.get('/contents/experiences', function(req,res) {mongoDbService.executeDbRequest(req, res, "experience", mongoDbService.getAll)});
 router.get('/contents/portfolios', function(req,res) {mongoDbService.executeDbRequest(req, res, "portfolio", mongoDbService.getAll)});
+router.get('/contents/about', function(req,res) {mongoDbService.executeDbRequest(req, res, "about", mongoDbService.getFirst)});
 
 module.exports = router;
