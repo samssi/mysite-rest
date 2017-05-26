@@ -9,6 +9,7 @@ const helmet = require('helmet');
 const app = express();
 const cors = require('cors');
 const Promise = require('bluebird');
+const healthCheckHandler = require('./handlers/healthCheckHandler');
 const privateHandler = require('./handlers/privateHandler');
 const errorHandler = require('./handlers/errorHandler');
 const MongoClient = require('mongodb').MongoClient;
@@ -25,6 +26,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 
 // Setup routes
+app.use('/health-check', healthCheckHandler);
 app.use('/private', privateHandler);
 app.use(errorHandler);
 
