@@ -1,0 +1,9 @@
+{
+  "ConfigMetadata": {
+    "description": "Local non-dockerized development context config",
+    "version": "1.0"
+  },
+  "MongoDb": {
+    "connectionUrl": "mongoConnectionUrlHere"
+  }
+}
