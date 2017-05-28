@@ -1,6 +1,6 @@
 {
   "ConfigMetadata": {
-    "description": "Local Dockerized development context config",
+    "description": "Development context config",
     "version": "1.0"
   },
   "MongoDb": {
