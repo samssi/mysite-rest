@@ -3,3 +3,4 @@
 *.log
 /node_modules/*
 /src/config/default.json
+/src/config/production.json

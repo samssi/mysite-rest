@@ -9,6 +9,7 @@ const helmet = require('helmet');
 const app = express();
 const cors = require('cors');
 const Promise = require('bluebird');
+
 const healthCheckHandler = require('./handlers/healthCheckHandler');
 const privateHandler = require('./handlers/privateHandler');
 const errorHandler = require('./handlers/errorHandler');
@@ -33,11 +34,14 @@ app.use(errorHandler);
 // Static material served by express
 const publicStaticImagesUrl = "/public/static/images";
 const publicImagesDirectory = "public/images";
+const configVersion = config.get("ConfigMetadata.description") + " version: " + config.get("ConfigMetadata.version");
+
+logger.info("Running " + configVersion)
 logger.info("Serving images folder '/%s' from url '%s'", publicImagesDirectory, publicStaticImagesUrl);
 app.use(publicStaticImagesUrl, express.static(publicImagesDirectory));
 
 // Server startup
-MongoClient.connect(config.get("mongoDb.connectionUrl"), { promiseLibrary: Promise })
+MongoClient.connect(config.get("MongoDb.connectionUrl"), { promiseLibrary: Promise })
     .catch(err => logger.error(err, 'Error connecting to MongoDB!'))
     .then(db => {
         app.locals.db = db;
