@@ -15,7 +15,7 @@ function getFirst(db, collection, res) {
 }
 
 function getAll(db, collection, res) {
-    db.collection(collection).find().toArray(function(err, results) {returnResults(err, results, res)});
+    db.collection(collection).find().sort({order: 1}).toArray(function(err, results) {returnResults(err, results, res)});
 }
 
 function returnResults(err, results, res) {
