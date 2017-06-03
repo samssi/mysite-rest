@@ -11,6 +11,11 @@ RUN npm install
 # Bundle app source
 COPY . /mysite/app
 
+RUN chown -R node:node /mysite
+
+USER node
+ENV HOME /mysite/app
+
 EXPOSE 8090
 
-CMD [ "npm", "start" ]
+CMD ["npm", "start" ]
