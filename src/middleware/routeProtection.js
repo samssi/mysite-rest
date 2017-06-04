@@ -1,10 +1,11 @@
 'use strict';
 
+const config = require('config');
 const bunyan = require('bunyan');
 const logger = bunyan.createLogger({name: 'mysite-rest-routeProtection'});
 
 const jwt = require('jsonwebtoken');
-const secret = 'very secret';
+const secret = config.get("JWT.secret");
 
 const requireToken = function (req, res, next) {
     const token = req.get("Authorization");
