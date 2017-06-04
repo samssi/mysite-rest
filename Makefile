@@ -1,8 +1,8 @@
 run:
-	NODE_CONFIG_DIR=~/.mysite-rest-config npm start
+	npm start
 
 run-prod:
-	NODE_CONFIG_DIR=~/.mysite-rest-config NODE_ENV=production npm start
+	NODE_ENV=production npm start
 
 build-docker-image:
 	docker build -t mysite/mysite-auth .
