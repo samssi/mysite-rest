@@ -28,10 +28,11 @@ app.use(bodyParser.json());
 
 // Setup routes
 app.use('/health-check', healthCheckHandler);
-app.use('/api/v1/private', privateHandler);
+app.use('/api/v1/content/private', privateHandler);
 app.use(errorHandler);
 
 // Static material served by express
+// TODO: application LB needs better url
 const publicStaticImagesUrl = "/public/static/images";
 const publicImagesDirectory = "public/images";
 const configVersion = config.get("ConfigMetadata.description") + " version: " + config.get("ConfigMetadata.version");
