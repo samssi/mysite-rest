@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
 // Setup routes
 app.use('/health-check', healthCheckHandler);
-app.use('/private', privateHandler);
+app.use('/api/v1/private', privateHandler);
 app.use(errorHandler);
 
 // Static material served by express
@@ -36,7 +36,7 @@ const publicStaticImagesUrl = "/public/static/images";
 const publicImagesDirectory = "public/images";
 const configVersion = config.get("ConfigMetadata.description") + " version: " + config.get("ConfigMetadata.version");
 
-logger.info("Running " + configVersion)
+logger.info("Running " + configVersion);
 logger.info("Serving images folder '/%s' from url '%s'", publicImagesDirectory, publicStaticImagesUrl);
 app.use(publicStaticImagesUrl, express.static(publicImagesDirectory));
 
