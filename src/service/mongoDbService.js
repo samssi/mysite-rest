@@ -4,7 +4,7 @@ const bunyan = require('bunyan');
 const logger = bunyan.createLogger({name: 'mysite-rest-mongoDbService'});
 
 function executeDbRequest(req, res, document, func) {
-    logger.info("User '%s' requested for %s", req.app.locals.decodedToken.sub, document);
+    logger.info("User '%s' requested for %s", res.locals.decodedToken.sub, document);
     const db = req.app.locals.db;
     func(db, document, res);
 }

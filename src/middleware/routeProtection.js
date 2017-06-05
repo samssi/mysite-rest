@@ -22,7 +22,7 @@ const requireToken = function (req, res, next) {
 function returnTokenOrFail(token, next, req, res) {
     jwt.verify(token, secret, function(err, decodedToken) {
         if(!err) {
-            req.app.locals.decodedToken = decodedToken;
+            res.locals.decodedToken = decodedToken;
             next();
         }
         else if (err.name === 'TokenExpiredError') {
