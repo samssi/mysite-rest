@@ -30,8 +30,7 @@ app.use('/api/v1/content/private', privateHandler);
 app.use(errorHandler);
 
 // Static material served by express
-// TODO: application LB needs better url
-const publicStaticImagesUrl = "/public/static/images";
+const publicStaticImagesUrl = "/api/v1/content/public/static/images";
 const publicImagesDirectory = "public/images";
 const configVersion = config.get("ConfigMetadata.description") + " version: " + config.get("ConfigMetadata.version");
 
