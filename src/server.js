@@ -18,8 +18,6 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 
-const secret = 'very secret';
-
 // Setup middleware
 app.use(cors());
 app.use(router);
