@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 function readFileFromRelativePath(file) {
     const relativePath = path.relative(process.cwd(), file);

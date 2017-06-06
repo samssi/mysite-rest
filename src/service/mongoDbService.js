@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const bunyan = require('bunyan');
-const logger = bunyan.createLogger({name: 'mysite-rest-mongoDbService'});
+const bunyan = require("bunyan");
+const logger = bunyan.createLogger({name: "mysite-rest-mongoDbService"});
 
 function executeDbRequest(req, res, document, func) {
     logger.info("User '%s' requested for %s", res.locals.decodedToken.sub, document);
