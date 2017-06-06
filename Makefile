@@ -5,7 +5,7 @@ run-prod:
 	NODE_ENV=production npm start
 
 build-docker-image:
-	docker build -t mysite/mysite-auth .
+	docker build -t mysite/mysite-rest .
 
 run-docker-image:
 	docker run -d -p 8090:8090 -v ~/.mysite-rest-config:/mysite/app/config mysite/mysite-rest
