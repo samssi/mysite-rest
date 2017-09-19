@@ -23,7 +23,9 @@ function returnResults(err, results, res) {
         logger.error(err, "Error finding collection: " + collection);
         res.sendStatus(500);
     }
-    res.status(200).send(results);
+    else {
+        res.status(200).send(results);
+    }
 }
 
 module.exports = {getAll, getFirst, executeDbRequest };
