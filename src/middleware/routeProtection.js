@@ -30,7 +30,7 @@ function returnTokenOrFail(token, next, req, res) {
         }
         else {
             logger.warn("Invalid token authorization attempt!");
-            return res.status(403).json({ message: "Failed to authenticate token." });
+            return res.status(403).json({ message: "Failed to authorize token." });
         }
     });
 }
