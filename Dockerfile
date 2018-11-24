@@ -10,6 +10,7 @@ RUN npm install
 
 # Bundle app source
 COPY . /mysite/app
+COPY ./config /mysite/app/config
 
 RUN chown -R node:node /mysite
 
